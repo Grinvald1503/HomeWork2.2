@@ -1,7 +1,7 @@
 package Transport;
 
 public class Bus extends Transport {
-    public Bus(String brand, String model, int year, double engineValue) {
+    public Bus(String brand, String model, double engineValue) {
         super(brand, model, engineValue);
     }
     @Override
@@ -16,6 +16,6 @@ public class Bus extends Transport {
 
     @Override
     public String toString() {
-        return "Марка - " + getBrand() + ", Модель - " + getModel() + ", Объём двигателя - " + getEngineValue() + ".";
+        return "Марка - " + getBrand() + ", Модель - " + getModel() + ", Объём двигателя - " + getEngineValue();
     }
 }

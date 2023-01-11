@@ -22,7 +22,7 @@ public class Car extends Transport {
     }
     @Override
     public String toString() {
-        return "Марка - " + getBrand() + ", Модель - " + getModel() + ", Объём двигателя - " + getEngineValue() + ".";
+        return "Марка - " + getBrand() + ", Модель - " + getModel() + ", Объём двигателя - " + getEngineValue();
     }
 
 }
