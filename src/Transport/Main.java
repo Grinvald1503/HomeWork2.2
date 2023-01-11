@@ -1,6 +1,5 @@
 package Transport;
 
-import Transport.Car;
 
 public class Main {
     public static void main(String[] args) {
@@ -29,6 +28,8 @@ public class Main {
         System.out.println(ikarus);
         belaz.bestLapTime();
         belaz.maxSpeed();
+        Driver<Car> ivan = new Driver<Car>("Иванов Иван Иванович", true, 3);
+        ivan.perform(audiA8);
     }
 
 }
