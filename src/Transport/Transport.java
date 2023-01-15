@@ -1,14 +1,15 @@
 package Transport;
 
-public class Transport {
+public abstract class Transport implements Competing {
     private final String brand;
     private final String model;
-    private final int year;
-    private String color;
-    private final String country;
+    private double engineValue;
+    private double lapTime;
+    private double bestLapTime;
+    private int speed;
     private int maxSpeed;
 
-    public Transport(String brand, String model, int year, String color, String country, int maxSpeed) {
+    public Transport(String brand, String model, double engineValue) {
         if (brand == null) {
             this.brand = "default";
         } else {
@@ -20,36 +21,13 @@ public class Transport {
         } else {
             this.model = model;
         }
-        if (country == null) {
-            this.country = "default";
+        if (engineValue <= 0) {
+            this.engineValue = 1.5;
         } else {
-            this.country = country;
-        }
-        if (color == null) {
-            this.color = "Белый";
-        } else {
-            this.color = color;
-        }
-        if (year <= 0) {
-            this.year = 2000;
-        } else {
-            this.year = year;
-        }
-        if (maxSpeed <= 0) {
-            this.maxSpeed = 180;
-        }
-        else {
-            this.maxSpeed = maxSpeed;
+            this.engineValue = engineValue;
         }
     }
 
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public void setMaxSpeed(int maxSpeed) {
-        this.maxSpeed = maxSpeed;
-    }
 
     public String getBrand() {
         return brand;
@@ -59,19 +37,62 @@ public class Transport {
         return model;
     }
 
-    public int getYear() {
-        return year;
+    public double getEngineValue() {
+        return engineValue;
     }
 
-    public String getColor() {
-        return color;
+    public void setLapTime(double lapTime) {
+        if (lapTime < 0) {
+            this.lapTime = lapTime * -1;
+        }
+        if (lapTime > bestLapTime) {
+            bestLapTime = lapTime;
+        }
+        this.lapTime = lapTime;
     }
 
-    public String getCountry() {
-        return country;
+    public void setSpeed(int speed) {
+        if (this.speed < 0) {
+            this.speed = speed * -1;
+        }
+        if (speed > maxSpeed) {
+            maxSpeed = speed;
+        }
+        this.speed = speed;
     }
 
-    public int getMaxSpeed() {
-        return maxSpeed;
+    public double getLapTime() {
+        return lapTime;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setEngineValue(double engineValue) {
+        if (engineValue <= 0) {
+            engineValue = 1.5;
+        } else {
+            this.engineValue = engineValue;
+        }
+    }
+
+    public abstract void startMoving();
+
+    public abstract void finishMovement();
+
+    @Override
+    public void pitStop() {
+        System.out.println("Заехал на Пит Стоп");
+    }
+
+    @Override
+    public void bestLapTime() {
+        System.out.println("Лучшее время круга - " + this.bestLapTime);
+    }
+
+    @Override
+    public void maxSpeed() {
+        System.out.println("Maксимальная скорость - " + this.maxSpeed);
     }
 }

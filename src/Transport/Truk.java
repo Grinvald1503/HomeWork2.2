@@ -1,17 +1,19 @@
 package Transport;
 
-public class Bus extends Transport {
-    public Bus(String brand, String model, double engineValue) {
+public class Truk extends Transport {
+
+    public Truk (String brand, String model, double engineValue) {
         super(brand, model, engineValue);
     }
+
     @Override
     public void startMoving() {
-        System.out.println("Автобус начал движение.");
+        System.out.println("Грузовик начал движение.");
     }
 
     @Override
     public void finishMovement() {
-        System.out.println("Автобус остановился.");
+        System.out.println("Грузовик остановился.");
     }
 
     @Override
