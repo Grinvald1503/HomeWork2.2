@@ -41,7 +41,7 @@ public class Driver <D extends Transport> {
 
     public String getFio() {
         return fio;
-    }
+    }   
 
     public boolean isDriverLicense() {
         return driverLicense;
