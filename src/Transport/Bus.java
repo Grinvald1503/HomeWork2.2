@@ -11,7 +11,7 @@ public class Bus extends Transport<ClassD> {
     }
 
 
-    private enum Capacity {
+    enum Capacity {
         VERY_SMALL(0, 10),
         SMALL(0, 25),
         AVERAGE(40, 50),

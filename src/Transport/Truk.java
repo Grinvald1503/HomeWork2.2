@@ -9,7 +9,7 @@ public class Truk extends Transport<ClassC> {
         super(brand, model, engineValue, driver);
         this.loadCapacity = loadCapacity;
     }
-    private enum LoadCapacity {
+    enum LoadCapacity {
         N1 (0, 3.5f),
         N2 (3.5f, 12),
         N3 (12, 0);

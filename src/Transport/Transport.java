@@ -2,7 +2,10 @@ package Transport;
 
 import Transport.Driver.Driver;
 
-public abstract class Transport <T extends Driver> implements Competing {
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class Transport<T extends Driver> implements Competing {
     private final String brand;
     private final String model;
     private double engineValue;
@@ -11,6 +14,9 @@ public abstract class Transport <T extends Driver> implements Competing {
     private int speed;
     private int maxSpeed;
     private final T driver;
+    public static List<Transport> transports = new ArrayList<>(30);
+    private List<Mechanic> mechanics = new ArrayList<Mechanic>();
+
 
     public Transport(String brand, String model, double engineValue, T driver) {
         if (brand == null) {
@@ -30,7 +36,9 @@ public abstract class Transport <T extends Driver> implements Competing {
             this.engineValue = engineValue;
         }
         this.driver = driver;
+        transports.add(this);
     }
+
     public abstract void passDiagnostics();
 
     public abstract void printType();
@@ -102,4 +110,13 @@ public abstract class Transport <T extends Driver> implements Competing {
     public void maxSpeed() {
         System.out.println("Maксимальная скорость - " + this.maxSpeed);
     }
+
+    public List<Mechanic> getMechanics() {
+        return mechanics;
+    }
+
+    public T getDriver() {
+        return driver;
+    }
 }
+

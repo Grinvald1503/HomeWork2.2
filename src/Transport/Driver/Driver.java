@@ -43,7 +43,12 @@ public class Driver <D extends Transport> {
 
     public String getFio() {
         return fio;
-    }   
+    }
+
+    @Override
+    public String toString() {
+        return "Водитель - " + fio + ". Водительское удостоверение - " + (driverLicense ? "есть" : "нету") + ". Стаж вождения " + experience + ".";
+    }
 
     public boolean isDriverLicense() {
         return driverLicense;
