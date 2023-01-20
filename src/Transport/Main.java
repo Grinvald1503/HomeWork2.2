@@ -17,19 +17,22 @@ public class Main {
         Truk belaz = new Truk("Белаз", "2345", 4.0);
 
 
-        belaz.setSpeed(100);
-        belaz.setSpeed(120);
-        belaz.setSpeed(100);
-        belaz.setLapTime(4.08);
-        belaz.setLapTime(4.55);
-        belaz.setLapTime(4.08);
+//        belaz.setSpeed(100);
+  //      belaz.setSpeed(120);
+    //    belaz.setSpeed(100);
+      //  belaz.setLapTime(4.08);
+        //belaz.setLapTime(4.55);
+//        belaz.setLapTime(4.08);
 
-        System.out.println(hyundaiAvante);
-        System.out.println(ikarus);
-        belaz.bestLapTime();
-        belaz.maxSpeed();
-        Driver<Car> ivan = new Driver<Car>("Иванов Иван Иванович", true, 3);
-        ivan.perform(audiA8);
+//        System.out.println(hyundaiAvante);
+//        System.out.println(ikarus);
+//        belaz.bestLapTime();
+//        belaz.maxSpeed();
+//        Driver<Car> ivan = new Driver<Car>("Иванов Иван Иванович", true, 3);
+//        ivan.perform(audiA8);
+//        System.out.println(Truk.LoadCapacity.N1);
+//      System.out.println(Truk.LoadCapacity.N2);
+//        System.out.println(Truk.LoadCapacity.N3);
     }
 
 }
