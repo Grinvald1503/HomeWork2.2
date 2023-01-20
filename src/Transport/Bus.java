@@ -1,10 +1,12 @@
 package Transport;
 
-public class Bus extends Transport {
+import Transport.Driver.ClassD;
+
+public class Bus extends Transport<ClassD> {
     private Capacity capacity;
 
-    public Bus(String brand, String model, double engineValue, Capacity capacity) {
-        super(brand, model, engineValue);
+    public Bus(String brand, String model, double engineValue, ClassD driver, Capacity capacity) {
+        super(brand, model, engineValue, driver);
         this.capacity = capacity;
     }
 
@@ -65,12 +67,17 @@ public class Bus extends Transport {
     }
 
     @Override
+    public void passDiagnostics() {
+        throw new UnsupportedOperationException("Автобусы не могут проходить диганостику!");
+    }
+
+    @Override
     public void printType() {
         if (capacity == null) {
             System.out.println("Данных по транспортному средству недостаточно");
         }
 
-            System.out.println("Мест: " + capacity);
+        System.out.println("Мест: " + capacity);
 
     }
 }

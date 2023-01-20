@@ -1,4 +1,6 @@
-package Transport;
+package Transport.Driver;
+
+import Transport.Transport;
 
 public class Driver <D extends Transport> {
     private String fio;
