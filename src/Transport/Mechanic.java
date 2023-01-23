@@ -1,5 +1,7 @@
 package Transport;
 
+import java.util.Objects;
+
 public class Mechanic {
     private String fio;
     private String company;
@@ -38,5 +40,18 @@ public class Mechanic {
     public void fixCar() {
         System.out.println("производится ремонт");
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Mechanic mechanic = (Mechanic) o;
+        return fio.equals(mechanic.fio) && company.equals(mechanic.company);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fio, company);
     }
 }

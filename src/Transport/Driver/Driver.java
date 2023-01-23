@@ -2,6 +2,8 @@ package Transport.Driver;
 
 import Transport.Transport;
 
+import java.util.Objects;
+
 public class Driver <D extends Transport> {
     private String fio;
     private boolean driverLicense;
@@ -65,5 +67,18 @@ public class Driver <D extends Transport> {
     }
     public void refuelCar() {
         System.out.println("Водитель начал заправку");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Driver<?> driver = (Driver<?>) o;
+        return driverLicense == driver.driverLicense && experience == driver.experience && fio.equals(driver.fio);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fio, driverLicense, experience);
     }
 }

@@ -3,6 +3,10 @@ package Transport;
 
 import Transport.Driver.*;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
 import static Transport.Transport.transports;
 
 
@@ -62,6 +66,9 @@ public class Main {
 
 
     }
+
+    Map<Transport<?>, Set<Mechanic>> mechanicsTransport = new HashMap<>();
+
 
     public static void infoComandCar(Transport transport) {
         System.out.println(transport.getDriver());

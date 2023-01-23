@@ -2,8 +2,7 @@ package Transport;
 
 import Transport.Driver.Driver;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public abstract class Transport<T extends Driver> implements Competing {
     private final String brand;
@@ -15,7 +14,7 @@ public abstract class Transport<T extends Driver> implements Competing {
     private int maxSpeed;
     private final T driver;
     public static List<Transport> transports = new ArrayList<>(30);
-    private List<Mechanic> mechanics = new ArrayList<Mechanic>();
+    private Set<Mechanic> mechanics = new HashSet<>();
 
 
     public Transport(String brand, String model, double engineValue, T driver) {
@@ -111,12 +110,25 @@ public abstract class Transport<T extends Driver> implements Competing {
         System.out.println("Maксимальная скорость - " + this.maxSpeed);
     }
 
-    public List<Mechanic> getMechanics() {
+    public Set<Mechanic> getMechanics() {
         return mechanics;
     }
 
     public T getDriver() {
         return driver;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Transport<?> transport = (Transport<?>) o;
+        return Double.compare(transport.engineValue, engineValue) == 0 && Double.compare(transport.lapTime, lapTime) == 0 && Double.compare(transport.bestLapTime, bestLapTime) == 0 && speed == transport.speed && maxSpeed == transport.maxSpeed && brand.equals(transport.brand) && model.equals(transport.model);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(brand, model, engineValue, lapTime, bestLapTime, speed, maxSpeed);
     }
 }
 
