@@ -67,7 +67,7 @@ public class Main {
 
     }
 
-    Map<Transport<?>, Set<Mechanic>> mechanicsTransport = new HashMap<>();
+    Map<Transport<?>, Set<Mechanic>> mechanicsTransport = new HashMap<>();      // Создал map где ключ авто, а значение механик
 
 
     public static void infoComandCar(Transport transport) {

@@ -14,7 +14,7 @@ public abstract class Transport<T extends Driver> implements Competing {
     private int maxSpeed;
     private final T driver;
     public static List<Transport> transports = new ArrayList<>(30);
-    private Set<Mechanic> mechanics = new HashSet<>();
+    private Set<Mechanic> mechanics = new HashSet<>(); // изменил List на Set и сделал во всех классах методы equals и hashCode
 
 
     public Transport(String brand, String model, double engineValue, T driver) {
