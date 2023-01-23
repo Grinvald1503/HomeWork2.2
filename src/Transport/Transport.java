@@ -2,7 +2,9 @@ package Transport;
 
 import Transport.Driver.Driver;
 
-public abstract class Transport <T extends Driver> implements Competing {
+import java.util.*;
+
+public abstract class Transport<T extends Driver> implements Competing {
     private final String brand;
     private final String model;
     private double engineValue;
@@ -11,6 +13,9 @@ public abstract class Transport <T extends Driver> implements Competing {
     private int speed;
     private int maxSpeed;
     private final T driver;
+    public static List<Transport> transports = new ArrayList<>(30);
+    private Set<Mechanic> mechanics = new HashSet<>();
+
 
     public Transport(String brand, String model, double engineValue, T driver) {
         if (brand == null) {
@@ -30,7 +35,9 @@ public abstract class Transport <T extends Driver> implements Competing {
             this.engineValue = engineValue;
         }
         this.driver = driver;
+        transports.add(this);
     }
+
     public abstract void passDiagnostics();
 
     public abstract void printType();
@@ -102,4 +109,26 @@ public abstract class Transport <T extends Driver> implements Competing {
     public void maxSpeed() {
         System.out.println("Maксимальная скорость - " + this.maxSpeed);
     }
+
+    public Set<Mechanic> getMechanics() {
+        return mechanics;
+    }
+
+    public T getDriver() {
+        return driver;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Transport<?> transport = (Transport<?>) o;
+        return Double.compare(transport.engineValue, engineValue) == 0 && Double.compare(transport.lapTime, lapTime) == 0 && Double.compare(transport.bestLapTime, bestLapTime) == 0 && speed == transport.speed && maxSpeed == transport.maxSpeed && brand.equals(transport.brand) && model.equals(transport.model);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(brand, model, engineValue, lapTime, bestLapTime, speed, maxSpeed);
+    }
 }
+

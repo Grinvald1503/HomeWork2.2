@@ -13,7 +13,7 @@ public class Car extends Transport <ClassB> {
 
     }
 
-    private enum BodyType {
+    enum BodyType {
         SEDAN("Седан"),
         HATCHBACK("Хетчбек"),
         COUPE("Купе"),
