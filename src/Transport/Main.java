@@ -3,9 +3,7 @@ package Transport;
 
 import Transport.Driver.*;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import static Transport.Transport.transports;
 
@@ -42,10 +40,10 @@ public class Main {
         Truk gaz = new Truk("Газ", "Next", 3.8, ivan, Truk.LoadCapacity.N2);
         Truk belaz = new Truk("Белаз", "2345", 4.0, ivan, Truk.LoadCapacity.N2);
 //        System.out.println(transports);
-        ladaGranta.getMechanics().add(tolian);
-        ladaGranta.getMechanics().add(petrovich);
+       ladaGranta.getMechanics().add(tolian);
+       ladaGranta.getMechanics().add(petrovich);
 //        System.out.println(ladaGranta.getMechanics());
-        infoComandCar(ladaGranta);
+//        infoComandCar(ladaGranta);
 
 
 //        belaz.setSpeed(100);
@@ -63,6 +61,17 @@ public class Main {
 //        System.out.println(Truk.LoadCapacity.N1);
 //      System.out.println(Truk.LoadCapacity.N2);
 //        System.out.println(Truk.LoadCapacity.N3);
+        Set<Driver> drivers = new HashSet<>();
+        drivers.add(max);
+        drivers.add(vik);
+        drivers.add(ivan);
+        Iterator<Driver> iter = drivers.iterator();
+        while (iter.hasNext()) {
+            Driver next = iter.next();
+            System.out.println(next);
+        }
+
+
 
 
     }
@@ -75,6 +84,8 @@ public class Main {
         System.out.println(transport.getMechanics());
 
     }
+
+
 
 
 }
